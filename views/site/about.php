@@ -1,18 +1,12 @@
 <?php
-
-/* @var $this yii\web\View */
-
-use yii\helpers\Html;
-
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
+use yii\widgets\ActiveForm;
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        This is the About page. You may modify the following file to customize its content:
-    </p>
+<?php $form = ActiveForm::begin() ?>
 
-    <code><?= __FILE__ ?></code>
-</div>
+<?= $form->field($attachmentModel, 'attachmentFile')
+    ->widget(\app\modules\attachment\widgets\AttachmentWidget::className(), ['allowUploadType'=> ['jpg', 'png']]) ?>
+
+<?= \yii\helpers\Html::submitButton() ?>
+
+<?php ActiveForm::end() ?>

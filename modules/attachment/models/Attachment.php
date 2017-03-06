@@ -14,7 +14,7 @@ use Yii;
  */
 class Attachment extends \yii\db\ActiveRecord
 {
-    public $attachmentFile = null;
+    public $attachmentFile = 123;
     /**
      * @inheritdoc
      */
@@ -50,5 +50,19 @@ class Attachment extends \yii\db\ActiveRecord
         ];
     }
 
-        
+    public function getPropertiesArray()
+    {
+//        if ($this->link) {
+//            if (!$this->fileLink) $this->fileLink = self::$handler->getFileLink($this->link);
+//            if (!$this->tmbLink) $this->tmbLink = self::$handler->getImageThumbnail($this->link, 'SM');
+//        }
+
+        return [
+            'id' => $this->id,
+            'link' => $this->link_on_file,
+            'size' => $this->size,
+            'type' => $this->mime_type,
+        ];
+    }
+
 }

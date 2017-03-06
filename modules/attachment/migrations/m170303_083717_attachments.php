@@ -18,15 +18,4 @@ class m170303_083717_attachments extends Migration
     {
         $this->delete('attachment');
     }
-
-    /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
-
-    public function safeDown()
-    {
-    }
-    */
 }

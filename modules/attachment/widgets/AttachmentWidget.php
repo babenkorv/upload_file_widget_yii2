@@ -15,12 +15,11 @@ class AttachmentWidget extends \yii\widgets\InputWidget
     }
     private function getUploadAttachmentTemplate()
     {
-        return Html::fileInput('AttachmentModel[fileUpload]', null, [
+        return Html::fileInput('Attachment[attachmentFile]', null, [
             'multiple' => "false",
             'id' => 'attachment-file-upload',
-            'data-upload-url' => '/default/upload',
+//            'data-upload-url' => '/attachment/default/create-and-return',
             'v-on:change' => 'loadAjaxFiles',
-           
         ]);
     }
 
@@ -29,7 +28,7 @@ class AttachmentWidget extends \yii\widgets\InputWidget
         ob_start(); ?>
         <div id="attachment">
             <div class="attach-file-block">
-                <label for="input-file" class="btn btn-default"> add new attachment </label>
+                <label for="input-file" class="btn btn-default" > add new attachment </label>
                 <input type="file" id="input-file">
                 <?= $this->getUploadAttachmentTemplate() ?>
                 <div class="btn btn-default" v-on:click="changeStatusExistingAttachments"> select attachment </div>
